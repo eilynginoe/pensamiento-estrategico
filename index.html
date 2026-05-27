@@ -1,136 +1,785 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pensamiento Estratégico · Caso de Estudio · Eilyn Ginoe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: #F5F6F2; color: #1A2E18; -webkit-font-smoothing: antialiased; }
-    :root {
-      --ink: #080F0A; --bg: #F5F6F2; --bg-sage: #EAF0E6; --bg-dark: #0D1E10;
-      --bg-darker: #1C1C1E; --bg-gold: #F8F4E8; --selva: #1A5C35; --selva-lt: #C0E8D0;
-      --selva-mid: #A8D0B4; --selva-dim: #4A6850; --gold: #9A7010; --gold-lt: #C9A84C;
-      --border: #C8D8C0; --border-dk: #1E3820; --muted: #5A6858; --hint: #7A9870;
-      --max: 1100px; --pad: clamp(24px, 5vw, 80px);
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
 
-    .nav { position: sticky; top: 0; z-index: 100; background: rgba(245,246,242,0.94); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); height: 72px; }
-    .nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
-    .nav-back { display: flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--hint); text-decoration: none; transition: color 0.2s; }
-    .nav-back:hover { color: var(--selva); }
-    .nav-logo { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: 20px; color: var(--ink); text-decoration: none; }
-    .nav-logo span { color: var(--gold); }
-    .nav-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--hint); }
+    html {
+      scroll-behavior: smooth;
+    }
 
-    .case-hero { background: var(--bg-darker); padding: 64px 0 56px; }
-    .case-hero .wrap { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: start; }
-    .ch-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: #4A4A50; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-    .ch-tag::before { content: ''; width: 16px; height: 0.5px; background: #7A7A80; display: block; }
-    .ch-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: clamp(40px, 5vw, 52px); line-height: 1.0; color: #F5F6F2; margin-bottom: 16px; }
-    .ch-title span { color: var(--gold); }
-    .ch-sub { font-size: 16px; font-weight: 300; line-height: 1.8; color: #A8ACB3; max-width: 520px; }
-    .ch-sub strong { color: #C8C8D0; font-weight: 500; }
-    .ch-meta { display: flex; flex-direction: column; gap: 10px; min-width: 200px; }
-    .meta-item { padding: 14px 18px; border-radius: 10px; background: rgba(255,255,255,0.04); border: 0.5px solid #2A2A30; }
-    .meta-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #4A4A50; margin-bottom: 4px; }
-    .meta-value { font-size: 14px; color: #A8A8B8; font-weight: 500; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F5F6F2;
+      color: #1A2E18;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    .pmv-note { margin-top: 32px; padding: 18px 22px; border-radius: 12px; background: rgba(154,112,16,0.08); border: 1px dashed rgba(154,112,16,0.35); display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start; max-width: 680px; }
-    .pmv-badge { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; background: rgba(154,112,16,0.15); color: #C9A84C; border: 0.5px solid rgba(201,168,76,0.4); border-radius: 20px; padding: 4px 12px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
-    .pmv-title { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #C9A84C; letter-spacing: 0.5px; margin-bottom: 6px; }
-    .pmv-rows { display: flex; flex-direction: column; gap: 5px; }
-    .pmv-row { display: flex; gap: 8px; align-items: baseline; }
-    .pmv-row-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(201,168,76,0.6); flex-shrink: 0; min-width: 80px; }
-    .pmv-row-text { font-size: 12px; color: #6A6A72; line-height: 1.5; }
+    :root {
+      --ink: #080F0A;
+      --bg: #F5F6F2;
+      --bg-sage: #EAF0E6;
+      --bg-dark: #0D1E10;
+      --bg-darker: #1C1C1E;
+      --bg-gold: #F8F4E8;
+      --selva: #1A5C35;
+      --selva-lt: #C0E8D0;
+      --selva-mid: #A8D0B4;
+      --selva-dim: #4A6850;
+      --gold: #9A7010;
+      --gold-lt: #C9A84C;
+      --border: #C8D8C0;
+      --border-dk: #1E3820;
+      --muted: #5A6858;
+      --hint: #7A9870;
+      --max: 1100px;
+      --pad: clamp(24px, 5vw, 80px);
+    }
 
-    .section { padding: 56px 0; border-top: 0.5px solid var(--border); }
-    .eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-    .eyebrow-line { width: 24px; height: 0.5px; background: var(--selva); flex-shrink: 0; }
-    .eyebrow-text { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--hint); }
-    .s-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: 34px; color: var(--ink); line-height: 1.1; margin-bottom: 14px; }
-    .s-body { font-size: 16px; font-weight: 300; line-height: 1.85; color: #4A5A48; }
-    .s-body strong { font-weight: 600; color: var(--ink); }
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-left: var(--pad);
+      padding-right: var(--pad);
+    }
 
-    .contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
-    .c-no { border-radius: 12px; padding: 22px; background: #F8F8F6; border: 0.5px solid #D8D8D0; }
-    .c-yes { border-radius: 12px; padding: 22px; background: var(--bg-sage); border: 0.5px solid var(--border); }
-    .c-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
-    .cl-no { color: #888880; } .cl-yes { color: #2A5A30; }
-    .c-title { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 17px; margin-bottom: 10px; }
-    .ct-no { color: #888880; text-decoration: line-through; text-decoration-color: rgba(0,0,0,0.15); }
-    .ct-yes { color: var(--ink); }
-    .c-items { display: flex; flex-direction: column; gap: 6px; }
-    .c-item { font-size: 14px; line-height: 1.5; display: flex; align-items: flex-start; gap: 8px; }
-    .ci-no { color: #AAAAAA; } .ci-no::before { content: '✕'; font-size: 12px; color: #CCCCCC; flex-shrink: 0; }
-    .ci-yes { color: #3A4A38; } .ci-yes::before { content: '→'; font-size: 12px; color: var(--selva); flex-shrink: 0; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 246, 242, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+      height: 72px;
+    }
 
-    .principles { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 20px; }
-    .principle { border-radius: 12px; padding: 18px 20px; background: var(--bg); border: 0.5px solid var(--border); }
-    .p-num { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--hint); margin-bottom: 8px; }
-    .p-name { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 20px; color: var(--ink); margin-bottom: 3px; }
-    .p-author { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--gold); margin-bottom: 8px; }
-    .p-use { font-size: 13px; line-height: 1.6; color: var(--muted); }
-    .p-signal { font-size: 12px; font-weight: 500; color: var(--selva); margin-top: 8px; padding-top: 8px; border-top: 0.5px solid var(--border); }
+    .nav .wrap {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-    .fallo-band { background: var(--bg-darker); padding: 56px 0; }
-  
-    .fallo-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .fallo-eyebrow-line { width: 24px; height: 0.5px; background: #3A6A48; flex-shrink: 0; }
-    .fallo-eyebrow-text { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #3A6A48; }
-    .fallo-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: 34px; color: #F5F6F2; line-height: 1.1; margin-bottom: 16px; }
-    .fallo-title span { color: var(--gold); }
-    .fallo-body { font-size: 16px; font-weight: 300; line-height: 1.85; color: #6A6A72; max-width: 640px; margin-bottom: 28px; }
-    .fallo-body strong { color: #C8C8D0; font-weight: 500; }
-    .fallo-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; }
-    .fc { border-radius: 10px; padding: 16px; background: rgba(255,255,255,0.04); border: 0.5px solid #2A2A30; }
-    .fc-num { font-family: 'Space Mono', monospace; font-size: 11px; color: #4A4A50; margin-bottom: 8px; }
-    .fc-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: 16px; color: #C8C8D0; margin-bottom: 6px; }
-    .fc-text { font-size: 13px; line-height: 1.5; color: #5A5A62; }
-    .fc-insight { margin-top: 8px; padding: 6px 8px; border-radius: 6px; background: rgba(154,112,16,0.1); border: 0.5px solid rgba(154,112,16,0.2); font-size: 12px; color: var(--gold); }
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--hint);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
 
-    .decisions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-    .decision { display: grid; grid-template-columns: 1fr 28px 1fr; gap: 10px; align-items: center; }
-    .dec-no { padding: 10px 14px; border-radius: 8px; background: rgba(0,0,0,0.04); border: 0.5px solid rgba(0,0,0,0.08); font-size: 13px; color: #888; text-decoration: line-through; text-decoration-color: rgba(0,0,0,0.2); }
-    .dec-arr { text-align: center; color: var(--border); font-size: 16px; }
-    .dec-yes { padding: 10px 14px; border-radius: 8px; background: var(--bg-sage); border: 0.5px solid var(--border); font-size: 11px; color: #2A4A2A; font-weight: 500; }
-    .dec-reason { grid-column: 3; padding: 0 14px 10px; font-size: 12px; color: var(--hint); line-height: 1.5; border-bottom: 0.5px solid #E0E8DC; }
-    .decision:last-child .dec-reason { border-bottom: none; }
+    .nav-back:hover {
+      color: var(--selva);
+    }
 
-    .quote-band { background: var(--selva); padding: 48px 0; }
-    .quote-band .wrap { text-align: center; max-width: 800px; }
-    .quote-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 28px; color: #F5F6F2; line-height: 1.4; margin-bottom: 14px; }
-    .quote-text span { color: var(--gold-lt); }
-    .quote-attr { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #7ABD90; }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--ink);
+      text-decoration: none;
+    }
 
-    .all-cases { background: var(--bg); border-top: 0.5px solid var(--border); padding: 48px 0; }
-    .ac-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--hint); margin-bottom: 20px; }
-    .ac-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-    .ac-card { border-radius: 12px; padding: 20px; border: 0.5px solid var(--border); background: var(--bg); }
-    .ac-card.active { border: 1.5px solid var(--selva); background: var(--bg-sage); }
-    .ac-type { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--hint); margin-bottom: 6px; }
-    .ac-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: 18px; color: var(--ink); margin-bottom: 4px; }
-    .ac-tag { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
-    .ac-btn { display: flex; align-items: center; gap: 6px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--selva); background: none; border: none; cursor: pointer; padding: 0; text-decoration: none; }
+    .nav-logo span {
+      color: var(--gold);
+    }
 
-    footer { background: var(--ink); padding: 24px 0; }
-    footer .wrap { display: flex; align-items: center; justify-content: space-between; }
-    .footer-logo { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600; font-size: 18px; color: #F5F6F2; text-decoration: none; }
-    .footer-logo span { color: var(--gold); }
-    .footer-copy { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #6e8f75; }
+    .nav-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--hint);
+    }
+
+    .case-hero {
+      background: var(--bg-darker);
+      padding: 64px 0 56px;
+    }
+
+    .case-hero .wrap {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .ch-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #4A4A50;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ch-tag::before {
+      content: '';
+      width: 16px;
+      height: 0.5px;
+      background: #7A7A80;
+      display: block;
+    }
+
+    .ch-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(40px, 5vw, 52px);
+      line-height: 1.0;
+      color: #F5F6F2;
+      margin-bottom: 16px;
+    }
+
+    .ch-title span {
+      color: var(--gold);
+    }
+
+    .ch-sub {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #A8ACB3;
+      max-width: 520px;
+    }
+
+    .ch-sub strong {
+      color: #C8C8D0;
+      font-weight: 500;
+    }
+
+    .ch-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 200px;
+    }
+
+    .meta-item {
+      padding: 14px 18px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 0.5px solid #2A2A30;
+    }
+
+    .meta-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #4A4A50;
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: 14px;
+      color: #A8A8B8;
+      font-weight: 500;
+    }
+
+    .pmv-note {
+      margin-top: 32px;
+      padding: 18px 22px;
+      border-radius: 12px;
+      background: rgba(154, 112, 16, 0.08);
+      border: 1px dashed rgba(154, 112, 16, 0.35);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: start;
+      max-width: 680px;
+    }
+
+    .pmv-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: rgba(154, 112, 16, 0.15);
+      color: #C9A84C;
+      border: 0.5px solid rgba(201, 168, 76, 0.4);
+      border-radius: 20px;
+      padding: 4px 12px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pmv-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #C9A84C;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .pmv-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .pmv-row {
+      display: flex;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .pmv-row-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(201, 168, 76, 0.6);
+      flex-shrink: 0;
+      min-width: 80px;
+    }
+
+    .pmv-row-text {
+      font-size: 12px;
+      color: #6A6A72;
+      line-height: 1.5;
+    }
+
+    .section {
+      padding: 56px 0;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow-line {
+      width: 24px;
+      height: 0.5px;
+      background: var(--selva);
+      flex-shrink: 0;
+    }
+
+    .eyebrow-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--hint);
+    }
+
+    .s-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 34px;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .s-body {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #4A5A48;
+    }
+
+    .s-body strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .contrast {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .c-no {
+      border-radius: 12px;
+      padding: 22px;
+      background: #F8F8F6;
+      border: 0.5px solid #D8D8D0;
+    }
+
+    .c-yes {
+      border-radius: 12px;
+      padding: 22px;
+      background: var(--bg-sage);
+      border: 0.5px solid var(--border);
+    }
+
+    .c-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .cl-no {
+      color: #888880;
+    }
+
+    .cl-yes {
+      color: #2A5A30;
+    }
+
+    .c-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .ct-no {
+      color: #888880;
+      text-decoration: line-through;
+      text-decoration-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .ct-yes {
+      color: var(--ink);
+    }
+
+    .c-items {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .c-item {
+      font-size: 14px;
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .ci-no {
+      color: #AAAAAA;
+    }
+
+    .ci-no::before {
+      content: '✕';
+      font-size: 12px;
+      color: #CCCCCC;
+      flex-shrink: 0;
+    }
+
+    .ci-yes {
+      color: #3A4A38;
+    }
+
+    .ci-yes::before {
+      content: '→';
+      font-size: 12px;
+      color: var(--selva);
+      flex-shrink: 0;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .principle {
+      border-radius: 12px;
+      padding: 18px 20px;
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+    }
+
+    .p-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--hint);
+      margin-bottom: 8px;
+    }
+
+    .p-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .p-author {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .p-use {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .p-signal {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--selva);
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .fallo-band {
+      background: var(--bg-darker);
+      padding: 56px 0;
+    }
+
+    .fallo-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .fallo-eyebrow-line {
+      width: 24px;
+      height: 0.5px;
+      background: #3A6A48;
+      flex-shrink: 0;
+    }
+
+    .fallo-eyebrow-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #3A6A48;
+    }
+
+    .fallo-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 34px;
+      color: #F5F6F2;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .fallo-title span {
+      color: var(--gold);
+    }
+
+    .fallo-body {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #6A6A72;
+      max-width: 640px;
+      margin-bottom: 28px;
+    }
+
+    .fallo-body strong {
+      color: #C8C8D0;
+      font-weight: 500;
+    }
+
+    .fallo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    .fc {
+      border-radius: 10px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 0.5px solid #2A2A30;
+    }
+
+    .fc-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: #4A4A50;
+      margin-bottom: 8px;
+    }
+
+    .fc-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 16px;
+      color: #C8C8D0;
+      margin-bottom: 6px;
+    }
+
+    .fc-text {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #5A5A62;
+    }
+
+    .fc-insight {
+      margin-top: 8px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      background: rgba(154, 112, 16, 0.1);
+      border: 0.5px solid rgba(154, 112, 16, 0.2);
+      font-size: 12px;
+      color: var(--gold);
+    }
+
+    .decisions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .decision {
+      display: grid;
+      grid-template-columns: 1fr 28px 1fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .dec-no {
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.04);
+      border: 0.5px solid rgba(0, 0, 0, 0.08);
+      font-size: 13px;
+      color: #888;
+      text-decoration: line-through;
+      text-decoration-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .dec-arr {
+      text-align: center;
+      color: var(--border);
+      font-size: 16px;
+    }
+
+    .dec-yes {
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--bg-sage);
+      border: 0.5px solid var(--border);
+      font-size: 11px;
+      color: #2A4A2A;
+      font-weight: 500;
+    }
+
+    .dec-reason {
+      grid-column: 3;
+      padding: 0 14px 10px;
+      font-size: 12px;
+      color: var(--hint);
+      line-height: 1.5;
+      border-bottom: 0.5px solid #E0E8DC;
+    }
+
+    .decision:last-child .dec-reason {
+      border-bottom: none;
+    }
+
+    .quote-band {
+      background: var(--selva);
+      padding: 48px 0;
+    }
+
+    .quote-band .wrap {
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .quote-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 28px;
+      color: #F5F6F2;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+
+    .quote-text span {
+      color: var(--gold-lt);
+    }
+
+    .quote-attr {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #7ABD90;
+    }
+
+    .all-cases {
+      background: var(--bg);
+      border-top: 0.5px solid var(--border);
+      padding: 48px 0;
+    }
+
+    .ac-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2A4A2A;
+      margin-bottom: 20px;
+    }
+
+    .ac-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .ac-card {
+      border-radius: 12px;
+      padding: 20px;
+      border: 0.5px solid var(--border);
+      background: var(--bg);
+    }
+
+    .ac-card.active {
+      border: 1.5px solid var(--selva);
+      background: var(--bg-sage);
+    }
+
+    .ac-type {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--hint);
+      margin-bottom: 6px;
+    }
+
+    .ac-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .ac-tag {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .ac-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--selva);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: none;
+    }
+
+    footer {
+      background: var(--ink);
+      padding: 24px 0;
+    }
+
+    footer .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 18px;
+      color: #F5F6F2;
+      text-decoration: none;
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer-copy {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #6e8f75;
+    }
 
     @media (max-width: 800px) {
-      .case-hero .wrap { grid-template-columns: 1fr; } .ch-meta { display: none; }
-      .contrast, .principles, .fallo-grid, .ac-grid { grid-template-columns: 1fr; }
-      .decision { grid-template-columns: 1fr; } .dec-arr { display: none; } .dec-reason { grid-column: 1; }
+      .case-hero .wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .ch-meta {
+        display: none;
+      }
+
+      .contrast,
+      .principles,
+      .fallo-grid,
+      .ac-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .decision {
+        grid-template-columns: 1fr;
+      }
+
+      .dec-arr {
+        display: none;
+      }
+
+      .dec-reason {
+        grid-column: 1;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <nav class="nav">
@@ -146,13 +795,17 @@
       <div>
         <div class="ch-tag">caso de estudio · simulación experiencial</div>
         <div class="ch-title">Pensar<br><span>estratégico.</span></div>
-        <p class="ch-sub">El cerebro no aprende a pensar diferente leyendo sobre cómo hacerlo. Lo aprende cuando se enfrenta a un problema que exige ese pensamiento de forma genuina, bajo presión real. <strong>Este proyecto diseña ese momento — no el contenido que lo explica.</strong></p>
+        <p class="ch-sub">El cerebro no aprende a pensar diferente leyendo sobre cómo hacerlo. Lo aprende cuando se
+          enfrenta a un problema que exige ese pensamiento de forma genuina, bajo presión real. <strong>Este proyecto
+            diseña ese momento — no el contenido que lo explica.</strong></p>
 
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;margin-bottom:8px;">
-          <a href="ddi-pensamiento-estrategico.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#1A5C35;color:#C0E8D0;border:none;border-radius:30px;padding:10px 20px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">
+          <a href="https://ddi-pensamiento-estrategico.vercel.app/" target="_blank"
+            style="display:inline-flex;align-items:center;gap:8px;background:#1A5C35;color:#C0E8D0;border:none;border-radius:30px;padding:10px 20px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">
             ver DDI completo →
           </a>
-          <a href="ddi-pensamiento-estrategico.pdf" download style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#C0E8D0;border:1px solid rgba(192,232,208,0.4);border-radius:30px;padding:10px 20px;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">
+          <a href="ddi-pensamiento-estrategico.pdf" download
+            style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#C0E8D0;border:1px solid rgba(192,232,208,0.4);border-radius:30px;padding:10px 20px;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;">
             ↓ descargar PDF
           </a>
         </div>
@@ -164,25 +817,40 @@
             <div class="pmv-rows">
               <div class="pmv-row">
                 <span class="pmv-row-label">hoy</span>
-                <span class="pmv-row-text">Reto del cilindro funcional con 5 módulos, sistema de fallos, Canvas MDPC y pantalla de reflexión con transferencia.</span>
+                <span class="pmv-row-text">Reto del cilindro funcional con 5 módulos, sistema de fallos, Canvas MDPC y
+                  pantalla de reflexión con transferencia.</span>
               </div>
               <div class="pmv-row">
                 <span class="pmv-row-label">escala</span>
-                <span class="pmv-row-text">Retos adicionales por industria, integración con LMS vía SCORM/xAPI, dashboard de análisis de patrones de resolución.</span>
+                <span class="pmv-row-text">Retos adicionales por industria, integración con LMS vía SCORM/xAPI,
+                  dashboard de análisis de patrones de resolución.</span>
               </div>
               <div class="pmv-row">
                 <span class="pmv-row-label">pendiente</span>
-                <span class="pmv-row-text">Mejoras de UX/UI, responsividad móvil y rúbrica completa de autoevaluación del Canvas MDPC.</span>
+                <span class="pmv-row-text">Mejoras de UX/UI, responsividad móvil y rúbrica completa de autoevaluación
+                  del Canvas MDPC.</span>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="ch-meta">
-        <div class="meta-item"><div class="meta-label">tipo</div><div class="meta-value">Simulación experiencial</div></div>
-        <div class="meta-item"><div class="meta-label">duración</div><div class="meta-value">45 — 90 min</div></div>
-        <div class="meta-item"><div class="meta-label">audiencia</div><div class="meta-value">Profesionales con problemas complejos</div></div>
-        <div class="meta-item"><div class="meta-label">ejecución</div><div class="meta-value">HTML / CSS / JS + SCORM</div></div>
+        <div class="meta-item">
+          <div class="meta-label">tipo</div>
+          <div class="meta-value">Simulación experiencial</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">duración</div>
+          <div class="meta-value">45 — 90 min</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">audiencia</div>
+          <div class="meta-value">Profesionales con problemas complejos</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">ejecución</div>
+          <div class="meta-value">HTML / CSS / JS + SCORM</div>
+        </div>
       </div>
     </div>
   </section>
@@ -191,9 +859,14 @@
     <div class="wrap">
 
       <div class="section">
-        <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">pregunta 01 · conducta</span></div>
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div><span class="eyebrow-text">pregunta 01 · conducta</span>
+        </div>
         <div class="s-title">¿Qué necesita hacer diferente este profesional?</div>
-        <p class="s-body">El 57% de los líderes corporativos identifican el pensamiento estratégico como la competencia más urgente. Y los programas responden con lo mismo: más contenido, más explicaciones, más teoría. <strong>El problema no es que los profesionales no sepan qué es el pensamiento estratégico — es que no pueden activarlo cuando lo necesitan.</strong></p>
+        <p class="s-body">El 57% de los líderes corporativos identifican el pensamiento estratégico como la competencia
+          más urgente. Y los programas responden con lo mismo: más contenido, más explicaciones, más teoría. <strong>El
+            problema no es que los profesionales no sepan qué es el pensamiento estratégico — es que no pueden activarlo
+            cuando lo necesitan.</strong></p>
         <div class="contrast">
           <div class="c-no">
             <div class="c-label cl-no">lo que los programas tradicionales hacen</div>
@@ -217,30 +890,66 @@
       </div>
 
       <div class="section">
-        <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">pregunta 02 · diagnóstico</span></div>
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div><span class="eyebrow-text">pregunta 02 · diagnóstico</span>
+        </div>
         <div class="s-title">¿Qué está bloqueando — y qué ciencia lo explica?</div>
-        <p class="s-body">Tres mecanismos cognitivos bloquean el pensamiento estratégico — y los tres se activan exactamente cuando el profesional más los necesita desactivados.</p>
+        <p class="s-body">Tres mecanismos cognitivos bloquean el pensamiento estratégico — y los tres se activan
+          exactamente cuando el profesional más los necesita desactivados.</p>
         <div class="principles">
-          <div class="principle"><div class="p-num">bloqueo 01</div><div class="p-name">Fijación funcional</div><div class="p-author">Duncker, 1945</div><p class="p-use">El cerebro etiqueta los recursos por su función obvia — y no puede verlos como otra cosa. La solución existe pero es invisible.</p><div class="p-signal">→ el participante tiene todo lo que necesita pero no puede verlo</div></div>
-          <div class="principle"><div class="p-num">bloqueo 02</div><div class="p-name">Sesgo de confirmación</div><div class="p-author">Nickerson, 1998</div><p class="p-use">El cerebro busca datos que validan la hipótesis y filtra los que la contradicen. Más información no resuelve el problema.</p><div class="p-signal">→ el participante busca más datos cuando necesita cambiar el enfoque</div></div>
-          <div class="principle"><div class="p-num">bloqueo 03</div><div class="p-name">Efecto de anclaje</div><div class="p-author">Kahneman, 2011</div><p class="p-use">La primera definición del problema congela todo lo que viene después. Si está mal formulado, ninguna solución puede ser correcta.</p><div class="p-signal">→ el participante resuelve el problema equivocado con determinación</div></div>
+          <div class="principle">
+            <div class="p-num">bloqueo 01</div>
+            <div class="p-name">Fijación funcional</div>
+            <div class="p-author">Duncker, 1945</div>
+            <p class="p-use">El cerebro etiqueta los recursos por su función obvia — y no puede verlos como otra cosa.
+              La solución existe pero es invisible.</p>
+            <div class="p-signal">→ el participante tiene todo lo que necesita pero no puede verlo</div>
+          </div>
+          <div class="principle">
+            <div class="p-num">bloqueo 02</div>
+            <div class="p-name">Sesgo de confirmación</div>
+            <div class="p-author">Nickerson, 1998</div>
+            <p class="p-use">El cerebro busca datos que validan la hipótesis y filtra los que la contradicen. Más
+              información no resuelve el problema.</p>
+            <div class="p-signal">→ el participante busca más datos cuando necesita cambiar el enfoque</div>
+          </div>
+          <div class="principle">
+            <div class="p-num">bloqueo 03</div>
+            <div class="p-name">Efecto de anclaje</div>
+            <div class="p-author">Kahneman, 2011</div>
+            <p class="p-use">La primera definición del problema congela todo lo que viene después. Si está mal
+              formulado, ninguna solución puede ser correcta.</p>
+            <div class="p-signal">→ el participante resuelve el problema equivocado con determinación</div>
+          </div>
         </div>
       </div>
 
       <div class="section">
-        <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">pregunta 03 · principio</span></div>
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div><span class="eyebrow-text">pregunta 03 · principio</span>
+        </div>
         <div class="s-title">¿Qué principio desactiva los tres bloqueos a la vez?</div>
-        <p class="s-body">La instrucción directa no los desactiva — los refuerza. Si explico qué es la fijación funcional, el participante lo entiende intelectualmente pero sigue cayendo en ella. <strong>El único principio que los desactiva simultáneamente es la dificultad deseable.</strong></p>
+        <p class="s-body">La instrucción directa no los desactiva — los refuerza. Si explico qué es la fijación
+          funcional, el participante lo entiende intelectualmente pero sigue cayendo en ella. <strong>El único principio
+            que los desactiva simultáneamente es la dificultad deseable.</strong></p>
         <div class="contrast" style="margin-top: 20px;">
           <div class="c-no">
             <div class="c-label cl-no">instrucción directa</div>
-            <div class="c-title ct-no" style="font-size: 14px;">Explico el bloqueo → el participante lo entiende → sigue cayendo en él</div>
-            <div class="c-items"><div class="c-item ci-no">Aprendizaje declarativo — sabe que existe</div><div class="c-item ci-no">No cambia el patrón de conducta real</div></div>
+            <div class="c-title ct-no" style="font-size: 14px;">Explico el bloqueo → el participante lo entiende → sigue
+              cayendo en él</div>
+            <div class="c-items">
+              <div class="c-item ci-no">Aprendizaje declarativo — sabe que existe</div>
+              <div class="c-item ci-no">No cambia el patrón de conducta real</div>
+            </div>
           </div>
           <div class="c-yes">
             <div class="c-label cl-yes">dificultad deseable — Bjork, 1994</div>
-            <div class="c-title ct-yes" style="font-size: 14px;">El participante cae en el bloqueo → falla → reconoce el patrón desde adentro</div>
-            <div class="c-items"><div class="c-item ci-yes">Aprendizaje experiencial — lo vivió</div><div class="c-item ci-yes">El concepto aparece cuando lo necesita</div></div>
+            <div class="c-title ct-yes" style="font-size: 14px;">El participante cae en el bloqueo → falla → reconoce el
+              patrón desde adentro</div>
+            <div class="c-items">
+              <div class="c-item ci-yes">Aprendizaje experiencial — lo vivió</div>
+              <div class="c-item ci-yes">El concepto aparece cuando lo necesita</div>
+            </div>
           </div>
         </div>
       </div>
@@ -250,14 +959,43 @@
 
   <div class="fallo-band">
     <div class="wrap">
-      <div class="fallo-eyebrow"><div class="fallo-eyebrow-line"></div><span class="fallo-eyebrow-text">pregunta 04 · intervención · el reto del cilindro</span></div>
+      <div class="fallo-eyebrow">
+        <div class="fallo-eyebrow-line"></div><span class="fallo-eyebrow-text">pregunta 04 · intervención · el reto del
+          cilindro</span>
+      </div>
       <div class="fallo-title">El fallo no es un error.<br>Es el <span>mecanismo de aprendizaje.</span></div>
-      <p class="fallo-body">El reto del cilindro es un problema genuinamente difícil con restricciones reales y sin guía directa. El participante tiene todos los recursos necesarios — pero su cerebro los etiqueta por su función obvia. <strong>Cada fallo activa exactamente el módulo que explica por qué falló.</strong> El contenido no precede a la experiencia — la sigue.</p>
+      <p class="fallo-body">El reto del cilindro es un problema genuinamente difícil con restricciones reales y sin guía
+        directa. El participante tiene todos los recursos necesarios — pero su cerebro los etiqueta por su función
+        obvia. <strong>Cada fallo activa exactamente el módulo que explica por qué falló.</strong> El contenido no
+        precede a la experiencia — la sigue.</p>
       <div class="fallo-grid">
-        <div class="fc"><div class="fc-num">fallo 01</div><div class="fc-name">Fijación funcional</div><p class="fc-text">El participante usa los objetos por su función obvia. El sistema muestra por qué no funciona.</p><div class="fc-insight">→ activa módulo 1: cómo el cerebro etiqueta</div></div>
-        <div class="fc"><div class="fc-num">fallo 02</div><div class="fc-name">Problema real vs síntoma</div><p class="fc-text">El participante resuelve el síntoma, no la raíz. El filtro de tres capas aparece cuando lo necesita.</p><div class="fc-insight">→ activa módulo 2: ver el problema real</div></div>
-        <div class="fc"><div class="fc-num">fallo 03</div><div class="fc-name">Sin clasificación</div><p class="fc-text">El participante prueba al azar. La clasificación por categorías aparece como herramienta, no como teoría.</p><div class="fc-insight">→ activa módulo 3: aislar el origen</div></div>
-        <div class="fc"><div class="fc-num">fallo 04–05</div><div class="fc-name">Parálisis y enfoque equivocado</div><p class="fc-text">Aprende a decidir con información incompleta y a cambiar el tipo de pregunta.</p><div class="fc-insight">→ activa módulos 4 y 5</div></div>
+        <div class="fc">
+          <div class="fc-num">fallo 01</div>
+          <div class="fc-name">Fijación funcional</div>
+          <p class="fc-text">El participante usa los objetos por su función obvia. El sistema muestra por qué no
+            funciona.</p>
+          <div class="fc-insight">→ activa módulo 1: cómo el cerebro etiqueta</div>
+        </div>
+        <div class="fc">
+          <div class="fc-num">fallo 02</div>
+          <div class="fc-name">Problema real vs síntoma</div>
+          <p class="fc-text">El participante resuelve el síntoma, no la raíz. El filtro de tres capas aparece cuando lo
+            necesita.</p>
+          <div class="fc-insight">→ activa módulo 2: ver el problema real</div>
+        </div>
+        <div class="fc">
+          <div class="fc-num">fallo 03</div>
+          <div class="fc-name">Sin clasificación</div>
+          <p class="fc-text">El participante prueba al azar. La clasificación por categorías aparece como herramienta,
+            no como teoría.</p>
+          <div class="fc-insight">→ activa módulo 3: aislar el origen</div>
+        </div>
+        <div class="fc">
+          <div class="fc-num">fallo 04–05</div>
+          <div class="fc-name">Parálisis y enfoque equivocado</div>
+          <p class="fc-text">Aprende a decidir con información incompleta y a cambiar el tipo de pregunta.</p>
+          <div class="fc-insight">→ activa módulos 4 y 5</div>
+        </div>
       </div>
     </div>
   </div>
@@ -265,24 +1003,38 @@
   <div style="background: var(--bg);">
     <div class="wrap">
       <div class="section">
-        <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">decisiones de diseño · lo que descarté</span></div>
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div><span class="eyebrow-text">decisiones de diseño · lo que descarté</span>
+        </div>
         <div class="s-title">Cada restricción protege la efectividad.</div>
         <div class="decisions">
           <div class="decision">
-            <div class="dec-no">Módulos como prerequisito obligatorio</div><div class="dec-arr">→</div><div class="dec-yes">Módulos disponibles en paralelo al reto</div>
-            <div class="dec-reason">El contenido tiene mayor impacto cuando el participante lo necesita para resolver algo concreto — no antes.</div>
+            <div class="dec-no">Módulos como prerequisito obligatorio</div>
+            <div class="dec-arr">→</div>
+            <div class="dec-yes">Módulos disponibles en paralelo al reto</div>
+            <div class="dec-reason">El contenido tiene mayor impacto cuando el participante lo necesita para resolver
+              algo concreto — no antes.</div>
           </div>
           <div class="decision">
-            <div class="dec-no">Evaluación con examen de conceptos</div><div class="dec-arr">→</div><div class="dec-yes">Canvas MDPC + reflexión de transferencia</div>
-            <div class="dec-reason">Medir retención no mide si el participante puede usar los conceptos. El Canvas aplicado a un caso real propio es la única evidencia que importa.</div>
+            <div class="dec-no">Evaluación con examen de conceptos</div>
+            <div class="dec-arr">→</div>
+            <div class="dec-yes">Canvas MDPC + reflexión de transferencia</div>
+            <div class="dec-reason">Medir retención no mide si el participante puede usar los conceptos. El Canvas
+              aplicado a un caso real propio es la única evidencia que importa.</div>
           </div>
           <div class="decision">
-            <div class="dec-no">Revelar la solución al tercer fallo</div><div class="dec-arr">→</div><div class="dec-yes">Pistas progresivas — nunca la solución directa</div>
-            <div class="dec-reason">Si el sistema revela la solución, el participante no llegó — el sistema llegó por él.</div>
+            <div class="dec-no">Revelar la solución al tercer fallo</div>
+            <div class="dec-arr">→</div>
+            <div class="dec-yes">Pistas progresivas — nunca la solución directa</div>
+            <div class="dec-reason">Si el sistema revela la solución, el participante no llegó — el sistema llegó por
+              él.</div>
           </div>
           <div class="decision">
-            <div class="dec-no">Reflexión implícita al final</div><div class="dec-arr">→</div><div class="dec-yes">Pregunta explícita de transferencia en 7 días</div>
-            <div class="dec-reason">Sin nombramiento explícito, la experiencia se queda en anécdota. Con él, se convierte en un patrón de razonamiento repetible.</div>
+            <div class="dec-no">Reflexión implícita al final</div>
+            <div class="dec-arr">→</div>
+            <div class="dec-yes">Pregunta explícita de transferencia en 7 días</div>
+            <div class="dec-reason">Sin nombramiento explícito, la experiencia se queda en anécdota. Con él, se
+              convierte en un patrón de razonamiento repetible.</div>
           </div>
         </div>
       </div>
@@ -291,32 +1043,35 @@
 
   <div class="quote-band">
     <div class="wrap">
-      <div class="quote-text">"No enseñes a pensar estratégico.<br>Diseña el momento en que <span>el cerebro lo necesita.</span>"</div>
+      <div class="quote-text">"No enseñes a pensar estratégico.<br>Diseña el momento en que <span>el cerebro lo
+          necesita.</span>"</div>
       <div class="quote-attr">— nota de diseño · pensamiento estratégico</div>
     </div>
   </div>
 
   <div class="all-cases">
     <div class="wrap">
-      <div class="ac-label">todos los casos de estudio</div>
+      <div class="ac-label"><strong>proyectos destacados</strong></div>
       <div class="ac-grid">
         <div class="ac-card">
           <div class="ac-type">hub de desempeño</div>
           <div class="ac-name">Signal Sales</div>
           <div class="ac-tag">Acceso cognitivo bajo presión</div>
-          <a href="signal-sales.html" class="ac-btn">ver caso →</a>
+          <a href="https://hub-de-desempeno.vercel.app/" target="_blank" rel="noopener noreferrer" class="ac-btn"><strong>ver pmv proyecto 👇</strong></a>
         </div>
         <div class="ac-card">
           <div class="ac-type">auditoría + rediseño</div>
           <div class="ac-name">Cisco Python</div>
           <div class="ac-tag">Bloqueo de identidad y pertenencia</div>
-          <a href="cisco-python.html" class="ac-btn">ver caso →</a>
+          <a href="https://auditoria-curso-python.vercel.app/" target="_blank" rel="noopener noreferrer"
+            class="ac-btn"><strong>ver proyecto 👇</strong></a>
         </div>
         <div class="ac-card active">
           <div class="ac-type">simulación experiencial</div>
           <div class="ac-name">Pensamiento Estratégico</div>
           <div class="ac-tag">Bloqueos cognitivos bajo presión</div>
-          <span style="font-family:'Space Mono',monospace;font-size:9px;color:var(--hint);opacity:0.5;">caso actual</span>
+          <a href="https://pensamiento-estrategico-elearning.vercel.app/" target="_blank" rel="noopener noreferrer"
+            class="ac-btn"><strong>ver pmv proyecto 👇</strong></a>
         </div>
       </div>
     </div>
@@ -330,4 +1085,5 @@
   </footer>
 
 </body>
+
 </html>
